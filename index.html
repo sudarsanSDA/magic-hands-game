@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Hands Follow-Along</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        
+        <!-- Screen 1: Welcome Screen with Benefits (Active on Load) -->
+        <div id="welcome-screen" class="screen active">
+            <h1>Magic Hands</h1>
+            <p class="subtitle">A fun follow-along finger yoga game!</p>
+
+            <div class="benefits-container">
+                <h2>Why Play This Game?</h2>
+                <ul>
+                    <li>Relaxes finger and wrist muscles.</li>
+                    <li>Improves fine motor skills.</li>
+                    <li>A calming break from screen time.</li>
+                </ul>
+            </div>
+
+            <button id="start-button">Start</button>
+        </div>
+        
+        <!-- Screen 2: Game Area -->
+        <div id="game-screen" class="screen">
+            <p id="instruction-text"></p>
+            <div id="hand-display-area">
+                <img src="assets/images/state-0-notouching.png" id="hand-notouching" alt="Resting Hand">
+                <img src="assets/images/state-1-index.png" id="hand-index" alt="Thumb to Index Finger">
+                <img src="assets/images/state-2-middle.png" id="hand-middle" alt="Thumb to Middle Finger">
+                <img src="assets/images/state-3-ring.png" id="hand-ring" alt="Thumb to Ring Finger">
+                <img src="assets/images/state-4-little.png" id="hand-little" alt="Thumb to Little Finger">
+                <img src="assets/images/state-5-prayer.png" id="hand-prayer" alt="Prayer Pose"> <!-- THIS LINE IS NOW FIXED -->
+                <img src="assets/images/state-6-together.png" id="hand-together" alt="Hands Together">
+            </div>
+        </div>
+        
+        <!-- Screen 3: End Screen -->
+        <div id="end-screen" class="screen">
+            <h1>Great Job!</h1>
+            <p>Your hands are happy and relaxed!</p>
+            <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Audio Files Preloaded for smooth playback -->
+    <div id="audio-container" style="display: none;">
+        <audio id="sfx-welcome" src="assets/audio/01_welcome.wav" preload="auto"></audio>
+        <audio id="sfx-begin" src="assets/audio/02_lets_begin.wav" preload="auto"></audio>
+        <audio id="sfx-r1_index" src="assets/audio/03_round1_index.wav" preload="auto"></audio>
+        <audio id="sfx-r1_middle" src="assets/audio/04_round1_middle.wav" preload="auto"></audio>
+        <audio id="sfx-r1_ring" src="assets/audio/05_round1_ring.wav" preload="auto"></audio>
+        <audio id="sfx-r1_little" src="assets/audio/06_round1_little.wav" preload="auto"></audio>
+        <audio id="sfx-r1_rev_start" src="assets/audio/07_round1_reverse_start.wav" preload="auto"></audio>
+        <audio id="sfx-r1_rev_little" src="assets/audio/08_round1_reverse_little.wav" preload="auto"></audio>
+        <audio id="sfx-r1_rev_ring" src="assets/audio/09_round1_reverse_ring.wav" preload="auto"></audio>
+        <audio id="sfx-r1_rev_middle" src="assets/audio/10_round1_reverse_middle.wav" preload="auto"></audio>
+        <audio id="sfx-r1_rev_index" src="assets/audio/11_round1_reverse_index.wav" preload="auto"></audio>
+        <audio id="sfx-r2_start" src="assets/audio/12_round2_start.wav" preload="auto"></audio>
+        <audio id="sfx-r3_start" src="assets/audio/13_round3_start.wav" preload="auto"></audio>
+        <audio id="sfx-prayer_start" src="assets/audio/14_prayer_start.wav" preload="auto"></audio>
+        <audio id="sfx-prayer_sway" src="assets/audio/15_prayer_sway.wav" preload="auto"></audio>
+        <audio id="sfx-shake" src="assets/audio/16_shake.wav" preload="auto"></audio>
+        <audio id="sfx-end" src="assets/audio/17_end_screen.wav" preload="auto"></audio>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>

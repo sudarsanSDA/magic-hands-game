@@ -1,0 +1,137 @@
+/* --- General Body & Font --- */
+body {
+    font-family: 'Nunito', sans-serif; /* Applied Nunito font */
+    background: #a0e9fd; /* Sky Blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #333; /* Default text color */
+}
+
+#game-container {
+    width: 90vw;
+    max-width: 800px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    height: 90vh;
+    max-height: 600px;
+    box-sizing: border-box;
+}
+
+/* --- Screen Management --- */
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade between screens */
+    pointer-events: none;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Typography and Buttons --- */
+h1 { font-size: 3em; color: #ff6347; margin: 0; font-weight: 700; }
+p { font-size: 1.2em; color: #555; font-weight: 400; }
+
+.subtitle {
+    margin-bottom: 2em; /* Add space below the subtitle */
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    background-color: #f7b733; /* Sunny Yellow */
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+button:hover { transform: scale(1.05); }
+
+/* --- NEW: Benefits Container on Welcome Screen --- */
+.benefits-container {
+    margin-bottom: 2.5em; /* Space before the start button */
+    max-width: 400px;
+}
+.benefits-container h2 {
+    font-size: 1.5em;
+    color: #005a8d;
+    margin-bottom: 0.5em;
+}
+.benefits-container ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+.benefits-container li {
+    font-size: 1.1em;
+    color: #333;
+    padding: 0.3em 0;
+}
+
+
+/* --- Game Screen Specifics --- */
+#instruction-text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #005a8d;
+    height: 3em; /* Reserve space to prevent layout shifts */
+}
+
+#hand-display-area {
+    width: 100%;
+    height: 450px;
+    position: relative;
+}
+
+#hand-display-area img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Smooth fade for images */
+}
+
+#hand-display-area img.active {
+    opacity: 1;
+}
+
+/* Animations for sway and shake */
+.sway-animation { animation: sway 3s infinite ease-in-out; }
+.shake-animation { animation: shake 0.5s infinite; }
+
+@keyframes sway {
+    0%, 100% { transform: translate(-50%, -50%) rotate(-3deg); }
+    50%      { transform: translate(-50%, -50%) rotate(3deg); }
+}
+@keyframes shake {
+    0%   { transform: translate(calc(-50% + 1px), calc(-50% - 1px)); }
+    25%  { transform: translate(calc(-50% - 2px), calc(-50% + 2px)); }
+    50%  { transform: translate(calc(-50% - 1px), calc(-50% - 2px)); }
+    75%  { transform: translate(calc(-50% + 2px), calc(-50% + 1px)); }
+    100% { transform: translate(calc(-50% + 1px), calc(-50% - 1px)); }
+}
